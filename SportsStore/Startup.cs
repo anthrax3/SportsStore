@@ -23,7 +23,13 @@ namespace SportsStore
       app.UseDeveloperExceptionPage();
       app.UseStatusCodePages();
       app.UseStaticFiles();
-      app.UseMvcWithDefaultRoute();
+      //app.UseMvcWithDefaultRoute();
+      app.UseMvc(routes =>
+      {
+        routes.MapRoute(
+          name: "default",
+          template: "{controller=Product}/{action=List}/{id?}"); // MVC naming convention -- "Product" instead of "ProductName"
+      });
     }
   }
 }
